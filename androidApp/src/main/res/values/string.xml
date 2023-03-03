@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="failed_to_login">Sorry, we can\'t login you right now</string>
+    <string name="failed_to_load_data">Sorry, we can\'t load data.</string>
+    <string name="failed_to_logout">Sorry, we can\'t logout you right now.</string>
+</resources>

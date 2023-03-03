@@ -1,8 +1,8 @@
 package com.maruchin.kmm.architecture.sharedlogic.android
 
 import android.content.Context
-import com.maruchin.kmm.architecture.sharedlogic.SharedConfig
-import com.maruchin.kmm.architecture.sharedlogic.SharedLibrary
+import com.maruchin.kmm.sharedservices.SharedConfig
+import com.maruchin.kmm.sharedservices.SharedLibrary
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

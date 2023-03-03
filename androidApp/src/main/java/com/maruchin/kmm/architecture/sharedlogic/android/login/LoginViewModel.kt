@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.maruchin.kmm.architecture.sharedlogic.android.R
-import com.maruchin.kmm.architecture.sharedlogic.users.UsersService
+import com.maruchin.kmm.sharedservices.users.UsersService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

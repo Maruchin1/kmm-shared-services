@@ -6,9 +6,9 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.maruchin.kmm.architecture.sharedlogic.android.R
-import com.maruchin.kmm.architecture.sharedlogic.posts.PostsService
-import com.maruchin.kmm.architecture.sharedlogic.posts.data.PostWithAuthor
-import com.maruchin.kmm.architecture.sharedlogic.users.UsersService
+import com.maruchin.kmm.sharedservices.posts.PostsService
+import com.maruchin.kmm.sharedservices.posts.data.PostWithAuthor
+import com.maruchin.kmm.sharedservices.users.UsersService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -42,7 +42,7 @@ class HomeViewModel @Inject constructor(
     private fun loadPosts() = viewModelScope.launch {
         try {
             isLoading = true
-            posts = postsService.getPostsWithUsers()
+            posts = postsService.getPostsWithAuthors()
             isLoading = false
         } catch (e: Exception) {
             errorMessage = R.string.failed_to_load_data

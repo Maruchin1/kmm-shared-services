@@ -31,6 +31,8 @@ kotlin {
     sourceSets {
         val koinVersion = "3.2.0"
         val ktorVersion = "2.2.3"
+        val coroutinesVersion = "1.6.4"
+        val settingsVersion = "1.0.0"
 
         val commonMain by getting {
             dependencies {
@@ -38,13 +40,17 @@ kotlin {
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
                 implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
                 implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-                implementation("com.russhwolf:multiplatform-settings:1.0.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+                implementation("com.russhwolf:multiplatform-settings:$settingsVersion")
             }
         }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
+                implementation("io.ktor:ktor-client-mock:$ktorVersion")
+                implementation("io.insert-koin:koin-test:$koinVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
+                implementation("com.russhwolf:multiplatform-settings-test:$settingsVersion")
             }
         }
         val androidMain by getting {

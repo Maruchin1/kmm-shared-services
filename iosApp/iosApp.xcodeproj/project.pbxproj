@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9B00D0B829AF48DA0022CB58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B00D0B729AF48DA0022CB58 /* AppDelegate.swift */; };
-		9B00D0BA29AF63B80022CB58 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B00D0B929AF63B80022CB58 /* Provider.swift */; };
+		9B00D0BA29AF63B80022CB58 /* DemoSdkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B00D0B929AF63B80022CB58 /* DemoSdkProvider.swift */; };
 		9B00D0BD29AFC70A0022CB58 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B00D0BC29AFC70A0022CB58 /* LoginViewModel.swift */; };
 		9B00D0C129AFCC040022CB58 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B00D0C029AFCC040022CB58 /* LoginView.swift */; };
 		9B00D0C329AFCD190022CB58 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B00D0C229AFCD190022CB58 /* LoginController.swift */; };
@@ -24,7 +24,7 @@
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B00D0B729AF48DA0022CB58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9B00D0B929AF63B80022CB58 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		9B00D0B929AF63B80022CB58 /* DemoSdkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSdkProvider.swift; sourceTree = "<group>"; };
 		9B00D0BC29AFC70A0022CB58 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		9B00D0C029AFCC040022CB58 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9B00D0C229AFCD190022CB58 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 				9B00D0BB29AFC6E00022CB58 /* Login */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				9B00D0B729AF48DA0022CB58 /* AppDelegate.swift */,
-				9B00D0B929AF63B80022CB58 /* Provider.swift */,
+				9B00D0B929AF63B80022CB58 /* DemoSdkProvider.swift */,
 				9B0267E129B11EBC00A26256 /* MainCoordinator.swift */,
 			);
 			path = iosApp;
@@ -235,7 +235,7 @@
 				9B00D0C329AFCD190022CB58 /* LoginController.swift in Sources */,
 				9B0267E929B126F300A26256 /* HomeController.swift in Sources */,
 				9B0267E729B1268A00A26256 /* HomeView.swift in Sources */,
-				9B00D0BA29AF63B80022CB58 /* Provider.swift in Sources */,
+				9B00D0BA29AF63B80022CB58 /* DemoSdkProvider.swift in Sources */,
 				9B00D0C129AFCC040022CB58 /* LoginView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

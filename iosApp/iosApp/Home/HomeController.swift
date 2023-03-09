@@ -9,10 +9,10 @@
 import SwiftUI
 
 func buildHomeController(delegate: HomeDelegate) -> UIViewController {
-    let library = Provider.shared.sharedLibrary
+    let sdk = DemoSdkProvider.shared.sdk
     let viewModel = HomeViewModel(
-        usersService: library.usersService,
-        postsService: library.postsService,
+        usersService: sdk.usersService,
+        postsService: sdk.postsService,
         delegate: delegate
     )
     let view = HomeView(viewModel: viewModel)

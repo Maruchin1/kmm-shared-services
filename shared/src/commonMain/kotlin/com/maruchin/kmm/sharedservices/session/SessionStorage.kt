@@ -2,23 +2,18 @@ package com.maruchin.kmm.sharedservices.session
 
 import com.russhwolf.settings.Settings
 import com.russhwolf.settings.set
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.withContext
 
 private const val LOGGED_USER_ID = "logged_user_id"
 
-internal class SessionStorage(
-    private val settings: Settings,
-    private val dispatcher: CoroutineDispatcher,
-) {
+internal class SessionStorage(private val settings: Settings) {
 
-    suspend fun getSession(): Session? = withContext(dispatcher) {
-        settings
+    fun getSession(): Session? {
+        return settings
             .getLongOrNull(LOGGED_USER_ID)
             ?.let { Session(it) }
     }
 
-    suspend fun saveSession(session: Session?) = withContext(dispatcher) {
+    fun saveSession(session: Session?) {
         settings[LOGGED_USER_ID] = session?.loggedUserId
     }
 }

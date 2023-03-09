@@ -38,7 +38,7 @@ class HomeViewModel: ObservableObject {
     
     private func loadPosts() {
         isLoading = true
-        postsService.getPostsWithUsers { posts, error in
+        postsService.getPostsWithAuthors { posts, error in
             self.isLoading = false
             if let posts = posts {
                 self.posts = posts

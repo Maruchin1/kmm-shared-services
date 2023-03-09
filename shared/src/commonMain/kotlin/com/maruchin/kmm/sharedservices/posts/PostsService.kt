@@ -1,8 +1,6 @@
 package com.maruchin.kmm.sharedservices.posts
 
-import com.maruchin.kmm.sharedservices.posts.data.PostsRepository
-import com.maruchin.kmm.sharedservices.posts.data.PostWithAuthor
-import com.maruchin.kmm.sharedservices.users.data.UsersRepository
+import com.maruchin.kmm.sharedservices.users.UsersRepository
 
 class PostsService internal constructor(
     private val postsRepository: PostsRepository,

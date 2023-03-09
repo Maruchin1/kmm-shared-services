@@ -1,9 +1,9 @@
 package com.maruchin.kmm.sharedservices
 
-import com.maruchin.kmm.sharedservices.posts.api.PostJson
-import com.maruchin.kmm.sharedservices.posts.data.Post
-import com.maruchin.kmm.sharedservices.users.api.UserJson
-import com.maruchin.kmm.sharedservices.users.data.User
+import com.maruchin.kmm.sharedservices.posts.PostJson
+import com.maruchin.kmm.sharedservices.posts.Post
+import com.maruchin.kmm.sharedservices.users.UserJson
+import com.maruchin.kmm.sharedservices.users.User
 
 internal val sampleUsersJson = listOf(
     UserJson(

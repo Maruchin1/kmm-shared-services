@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.maruchin.kmm.architecture.sharedlogic.android.R
 import com.maruchin.kmm.sharedservices.posts.PostsService
-import com.maruchin.kmm.sharedservices.posts.data.PostWithAuthor
+import com.maruchin.kmm.sharedservices.posts.PostWithAuthor
 import com.maruchin.kmm.sharedservices.users.UsersService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

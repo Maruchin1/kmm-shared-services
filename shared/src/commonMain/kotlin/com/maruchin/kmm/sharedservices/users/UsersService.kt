@@ -1,9 +1,7 @@
 package com.maruchin.kmm.sharedservices.users
 
-import com.maruchin.kmm.sharedservices.session.data.Session
-import com.maruchin.kmm.sharedservices.session.data.SessionRepository
-import com.maruchin.kmm.sharedservices.users.data.User
-import com.maruchin.kmm.sharedservices.users.data.UsersRepository
+import com.maruchin.kmm.sharedservices.session.Session
+import com.maruchin.kmm.sharedservices.session.SessionRepository
 
 class UsersService internal constructor(
     private val usersRepository: UsersRepository,
@@ -19,9 +17,10 @@ class UsersService internal constructor(
 
     @Throws(Exception::class)
     suspend fun loginUser(email: String) {
-        val user = usersRepository.findUser(email) ?: throw UserNotFoundException()
-        val session = Session.forUser(user)
-        sessionRepository.saveSession(session)
+        usersRepository.findUser(email)?.let { user ->
+            val session = Session.forUser(user)
+            sessionRepository.saveSession(session)
+        }
     }
 
     @Throws(Exception::class)

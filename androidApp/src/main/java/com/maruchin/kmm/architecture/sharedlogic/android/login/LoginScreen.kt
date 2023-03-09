@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 package com.maruchin.kmm.architecture.sharedlogic.android.login
 
 import androidx.compose.foundation.layout.Arrangement
@@ -7,11 +9,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme.typography
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme.typography
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -41,7 +44,7 @@ fun LoginScreen(viewModel: LoginViewModel = hiltViewModel(), onNavigateToHome: (
         ) {
             Text(
                 text = "Welcome",
-                style = typography.h5,
+                style = typography.headlineMedium,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -49,7 +52,7 @@ fun LoginScreen(viewModel: LoginViewModel = hiltViewModel(), onNavigateToHome: (
             )
             Text(
                 text = viewModel.email,
-                style = typography.body1,
+                style = typography.bodyMedium,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .fillMaxWidth()

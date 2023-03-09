@@ -1,9 +1,8 @@
 package com.maruchin.kmm.sharedservices.posts
 
-import com.maruchin.kmm.sharedservices.libs.libsModule
-import com.maruchin.kmm.sharedservices.mock.HttpMock
-import com.maruchin.kmm.sharedservices.mock.mocksModule
-import com.maruchin.kmm.sharedservices.posts.data.PostWithAuthor
+import com.maruchin.kmm.sharedservices.core.FakeHttpEngine
+import com.maruchin.kmm.sharedservices.core.coreModule
+import com.maruchin.kmm.sharedservices.core.fakeCoreDependenciesModule
 import com.maruchin.kmm.sharedservices.samplePosts
 import com.maruchin.kmm.sharedservices.samplePostsJson
 import com.maruchin.kmm.sharedservices.sampleUsers
@@ -23,12 +22,20 @@ import kotlin.test.assertContentEquals
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class PostsServiceTest : KoinTest {
-    private val httpMock: HttpMock by inject()
+    private val fakeHttpEngine: FakeHttpEngine by inject()
     private val postsService: PostsService by inject()
 
     @BeforeTest
     fun before() {
-        startKoin { modules(libsModule, postsModule, usersModule, sessionModule, mocksModule) }
+        startKoin {
+            modules(
+                postsModule,
+                usersModule,
+                sessionModule,
+                fakeCoreDependenciesModule,
+                coreModule
+            )
+        }
     }
 
     @AfterTest
@@ -38,11 +45,11 @@ class PostsServiceTest : KoinTest {
 
     @Test
     fun `Get posts with authors`() = runTest {
-        httpMock.mockUserByEmail(sampleUsersJson[0])
-        httpMock.mockUser(sampleUsersJson[0])
-        httpMock.mockUser(sampleUsersJson[1])
-        httpMock.mockUser(sampleUsersJson[2])
-        httpMock.mockAllPosts(samplePostsJson)
+        fakeHttpEngine.mockUserByEmail(sampleUsersJson[0])
+        fakeHttpEngine.mockUser(sampleUsersJson[0])
+        fakeHttpEngine.mockUser(sampleUsersJson[1])
+        fakeHttpEngine.mockUser(sampleUsersJson[2])
+        fakeHttpEngine.mockAllPosts(samplePostsJson)
         val postsWithAuthors = postsService.getPostsWithAuthors()
 
         assertContentEquals(

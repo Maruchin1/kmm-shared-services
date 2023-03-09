@@ -1,8 +1,8 @@
 package com.maruchin.kmm.sharedservices.users
 
-import com.maruchin.kmm.sharedservices.libs.libsModule
-import com.maruchin.kmm.sharedservices.mock.HttpMock
-import com.maruchin.kmm.sharedservices.mock.mocksModule
+import com.maruchin.kmm.sharedservices.core.FakeHttpEngine
+import com.maruchin.kmm.sharedservices.core.coreModule
+import com.maruchin.kmm.sharedservices.core.fakeCoreDependenciesModule
 import com.maruchin.kmm.sharedservices.sampleUsers
 import com.maruchin.kmm.sharedservices.sampleUsersJson
 import com.maruchin.kmm.sharedservices.session.sessionModule
@@ -20,13 +20,12 @@ import kotlin.test.assertNull
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class UsersServiceTest : KoinTest {
-
-    private val httpMock: HttpMock by inject()
+    private val fakeHttpEngine: FakeHttpEngine by inject()
     private val usersService: UsersService by inject()
 
     @BeforeTest
     fun before() {
-        startKoin { modules(libsModule, sessionModule, usersModule, mocksModule) }
+        startKoin { modules(sessionModule, usersModule, fakeCoreDependenciesModule, coreModule) }
     }
 
     @AfterTest
@@ -43,7 +42,7 @@ class UsersServiceTest : KoinTest {
 
     @Test
     fun `User logged in`() = runTest {
-        httpMock.mockUserByEmail(sampleUsersJson[0])
+        fakeHttpEngine.mockUserByEmail(sampleUsersJson[0])
         usersService.loginUser(sampleUsers[0].email)
         val loggedUser = usersService.getLoggedUser()
 
@@ -52,7 +51,7 @@ class UsersServiceTest : KoinTest {
 
     @Test
     fun `User logged out`() = runTest {
-        httpMock.mockUserByEmail(sampleUsersJson[0])
+        fakeHttpEngine.mockUserByEmail(sampleUsersJson[0])
         usersService.loginUser(sampleUsers[0].email)
         usersService.logoutUser()
         val loggedUser = usersService.getLoggedUser()

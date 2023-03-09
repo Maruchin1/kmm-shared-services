@@ -1,8 +1,8 @@
 package com.maruchin.kmm.architecture.sharedlogic.android
 
 import android.content.Context
-import com.maruchin.kmm.sharedservices.SharedConfig
-import com.maruchin.kmm.sharedservices.SharedLibrary
+import com.maruchin.kmm.sharedservices.core.DemoConfig
+import com.maruchin.kmm.sharedservices.DemoSdk
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,17 +16,17 @@ class SharedModule {
 
     @Singleton
     @Provides
-    fun sharedLibrary(@ApplicationContext context: Context): SharedLibrary {
-        val config = SharedConfig(
+    fun sharedLibrary(@ApplicationContext context: Context): DemoSdk {
+        val config = DemoConfig(
             settingsName = "demo_settings",
             context = context
         )
-        return SharedLibrary(config)
+        return DemoSdk(config)
     }
 
     @Provides
-    fun usersService(library: SharedLibrary) = library.usersService
+    fun usersService(library: DemoSdk) = library.usersService
 
     @Provides
-    fun postsService(library: SharedLibrary) = library.postsService
+    fun postsService(library: DemoSdk) = library.postsService
 }

@@ -47,7 +47,7 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), onNavigateToLogin: ()
 private fun TopAppBar(onLogout: () -> Unit) {
     TopAppBar(
         title = {
-            Text(text = "Posts")
+            Text(text = "Home")
         },
         actions = {
             TextButton(onClick = onLogout) {

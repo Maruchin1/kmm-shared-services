@@ -29,11 +29,7 @@ fun LoginScreen(viewModel: LoginViewModel = hiltViewModel(), onNavigateToHome: (
     LaunchedEffect(viewModel.isLoggedIn) {
         if (viewModel.isLoggedIn) onNavigateToHome()
     }
-    Scaffold(
-        topBar = {
-            TopAppBar(title = { Text(text = "Login") })
-        }
-    ) { padding ->
+    Scaffold(topBar = { TopAppBar(title = { Text(text = "Login") }) }) { padding ->
         Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,

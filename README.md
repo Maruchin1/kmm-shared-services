@@ -1,6 +1,6 @@
 # KMM Shared Services Architecture
 
-<img align="left" width="400" src="https://user-images.githubusercontent.com/46427781/224071234-a892a3d2-e045-4ae3-85fc-d7376c956875.png">
+<img align="right" width="400" src="https://user-images.githubusercontent.com/46427781/224071234-a892a3d2-e045-4ae3-85fc-d7376c956875.png">
 
 ### androidApp (Native)
 
@@ -17,8 +17,6 @@
 - `Services` handle an application logic. They expose public methods which return data or perform some operations.
 - `Services` access different `Repositories` to get or save data.
 - `Repository` access different `DataSources` in order to fetch or persist data locally or remotely.
-  
-<br/><br/><br/><br/><br/>
 
 # Architecture concept
 
@@ -34,29 +32,7 @@ public API of the KMM module. They expose public methods to the native app and r
 
 3. If your app has some extra business logic built on top of your data you can extract this logic to the KMM `Services`. In this case the `Service` can
 get data from different `Repositories` and use it to perform more complex business operations like executing some wider process or return transformed data 
-to the nativie app. 
-
-# Demo application
-
-This repository contains a simple app implemented for Android and iOS usign the Shared Services architecture for the KMM module.
-
-### Login screen
-
-We display welcome text with user's email. Email is hardcoded for the demo purpose. 
-User can click `Login` button to verify if user with this email can access the app. After successfull verification user is moved to the `Home` screen.
-
-### Home screen
-
-We display a list of posts. Each post contains a title, author name and body. 
-User can scroll through the list and click `Logout` button to move back to the `Login` screen
-
-<img align="left" width="230" src="https://user-images.githubusercontent.com/46427781/224112025-2eccca4c-9914-4066-bc97-e1b85936f945.png">
-<img align="left" width="230" src="https://user-images.githubusercontent.com/46427781/224114817-66e1bdd2-59a8-40c9-8165-f28f1bb5780e.png">
-
-<img align="right" width="230" src="https://user-images.githubusercontent.com/46427781/224113298-f74d5f9b-afb3-477f-9d16-2585aeba1b3f.png">
-<img align="right" width="230" src="https://user-images.githubusercontent.com/46427781/224113085-e4fac9cf-a302-43aa-a92e-b583c9eb03be.png">
-
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+to the nativie app.
 
 # Technical details
 
@@ -73,3 +49,19 @@ official tool recommended by Google. Using `Hilt` `@Module` we create an instanc
 
 On the other hand, the iOS app can use simple custom solution based on the Singleton pattern. We create a `DemoSdkProvider` which is a Singleton.
 In this class we create an instance of `DemoSdk` and allow other parts of the app to access it in order to get given `Services`.
+
+# Demo application
+
+This repository contains a simple app implemented for Android and iOS usign the Shared Services architecture for the KMM module.
+
+### Login screen
+
+We display welcome text with user's email. Email is hardcoded for the demo purpose. 
+User can click `Login` button to verify if user with this email can access the app. After successfull verification user is moved to the `Home` screen.
+
+### Home screen
+
+We display a list of posts. Each post contains a title, author name and body. 
+User can scroll through the list and click `Logout` button to move back to the `Login` screen
+
+![Projekt bez tytułu (1)](https://user-images.githubusercontent.com/46427781/224264955-f82c7422-fc6d-4a04-a962-b4c514d89d98.png)

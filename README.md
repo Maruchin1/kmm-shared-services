@@ -24,6 +24,14 @@
 
 - `Repository` access different `DataSources` in order to fetch or persist data locally or remotely.
 
+### Code distribution
+
+| Module | Lines of code |
+| ------ | ------------- |
+| shared | 257 |
+| androidApp | 348 |
+| iosApp | 217 |
+
 # Architecture concept
 
 This architectural approach for implementing a KMM module favours simplicity and flexibility. Using Shared Services we can adjust a level of code sharing which

@@ -1,5 +1,7 @@
 # KMM Shared Services Architecture
 
+[![Build](https://github.com/Maruchin1/kmm-shared-services/actions/workflows/main-workflow.yml/badge.svg)](https://github.com/Maruchin1/kmm-shared-services/actions/workflows/main-workflow.yml)
+
 <img align="right" width="400" src="https://user-images.githubusercontent.com/46427781/224071234-a892a3d2-e045-4ae3-85fc-d7376c956875.png">
 
 ### androidApp (Native)

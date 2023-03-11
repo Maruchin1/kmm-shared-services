@@ -1,12 +1,12 @@
-name: 'Master build'
+name: 'CI'
 
 on:
   push:
 
 jobs:
   build:
-    name: 'Build Android'
-    runs-on: ubuntu-latest
+    name: 'Build'
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
 
@@ -18,5 +18,8 @@ jobs:
       - name: 'Setup Gradle'
         uses: gradle/gradle-build-action@v2
 
-      - name: 'Execute Gradle build'
-        run: ./gradlew build
+      - name: 'All Tests'
+        run: ./gradlew allTests
+
+      - name: 'Bundle Android'
+        run: ./gradlew bundle

@@ -1,6 +1,6 @@
 # KMM Shared Services Architecture
 
-[![Master build](https://github.com/Maruchin1/kmm-shared-services/actions/workflows/master-build.yml/badge.svg)](https://github.com/Maruchin1/kmm-shared-services/actions/workflows/master-build.yml)
+[![CI](https://github.com/Maruchin1/kmm-shared-services/actions/workflows/ci-workflow.yml/badge.svg)](https://github.com/Maruchin1/kmm-shared-services/actions/workflows/ci-workflow.yml)
 
 <img align="right" width="400" src="https://user-images.githubusercontent.com/46427781/224071234-a892a3d2-e045-4ae3-85fc-d7376c956875.png">
 

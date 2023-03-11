@@ -7,17 +7,21 @@
 ### androidApp (Native)
 
 - `Views` implemented with either XML or Jetpack Compose.
+
 - Presentation logic holder of your choice. It can be a `ViewModel` or some other solution.
 
 ### iosApp (Native)
 
 - `Views` implemented with either UIKit or SwiftUI.
+
 - Presentation logic holder of your choice. It can be a `ViewModel` or some other solution.
 
 ### shared (KMM)
 
 - `Services` handle an application logic. They expose public methods which return data or perform some operations.
+
 - `Services` access different `Repositories` to get or save data.
+
 - `Repository` access different `DataSources` in order to fetch or persist data locally or remotely.
 
 # Architecture concept

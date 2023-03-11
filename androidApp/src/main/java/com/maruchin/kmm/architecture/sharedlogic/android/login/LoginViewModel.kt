@@ -5,30 +5,31 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.maruchin.kmm.architecture.sharedlogic.android.R
-import com.maruchin.kmm.sharedservices.users.UsersService
+import com.maruchin.kmm.sharedservices.session.SessionService
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 private const val DEMO_USER_EMAIL = "Sincere@april.biz"
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(private val usersService: UsersService) : ViewModel() {
+class LoginViewModel @Inject constructor(private val sessionService: SessionService) : ViewModel() {
 
     var email by mutableStateOf(DEMO_USER_EMAIL)
     var isLoading by mutableStateOf(false)
     var isLoggedIn by mutableStateOf(false)
-    var errorMessage by mutableStateOf<Int?>(null)
+    var error by mutableStateOf<Throwable?>(null)
 
-    fun login() = viewModelScope.launch {
-        try {
-            isLoading = true
-            usersService.loginUser(email)
-            isLoading = false
-            isLoggedIn = true
-        } catch (e: Exception) {
-            errorMessage = R.string.failed_to_login
-        }
+    private val exceptionHandler = CoroutineExceptionHandler { _, e ->
+        isLoading = false
+        error = e
+    }
+
+    fun login() = viewModelScope.launch(exceptionHandler) {
+        isLoading = true
+        sessionService.loginUser(email)
+        isLoading = false
+        isLoggedIn = true
     }
 }

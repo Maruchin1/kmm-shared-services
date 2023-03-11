@@ -1,5 +1,6 @@
-package com.maruchin.kmm.sharedservices.core
+package com.maruchin.kmm.sharedservices
 
+import com.russhwolf.settings.Settings
 import io.ktor.client.*
 import io.ktor.client.engine.*
 import io.ktor.client.plugins.contentnegotiation.*
@@ -9,19 +10,15 @@ import org.koin.dsl.module
 
 internal val coreModule = module {
     single {
-        HttpClient(get<HttpClientEngineFactory<*>>()) {
+        HttpClient(createHttpEngineFactory()) {
             install(ContentNegotiation) {
                 json(Json { ignoreUnknownKeys = true })
             }
         }
     }
+    factory { createSettings(get()) }
 }
 
-internal fun coreDependenciesModule(config: DemoConfig) = module {
+internal expect fun createHttpEngineFactory(): HttpClientEngineFactory<*>
 
-    factory { config }
-
-    factory { createHttpEngineFactory() }
-
-    single { createSettings(get()) }
-}
+internal expect fun createSettings(config: DemoConfig): Settings

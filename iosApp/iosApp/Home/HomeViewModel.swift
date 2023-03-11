@@ -15,19 +15,19 @@ class HomeViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var errorMessage: String = ""
     
-    private let usersService: UsersService
+    private let sessionService: SessionService
     private let postsService: PostsService
     private let delegate: HomeDelegate
     
-    init(usersService: UsersService, postsService: PostsService, delegate: HomeDelegate) {
-        self.usersService = usersService
+    init(sessionService: SessionService, postsService: PostsService, delegate: HomeDelegate) {
+        self.sessionService = sessionService
         self.postsService = postsService
         self.delegate = delegate
         loadPosts()
     }
     
     func logout() {
-        usersService.logoutUser { error in
+        sessionService.logoutUser { error in
             if (error == nil) {
                 self.delegate.onLoggedOut()
             } else {

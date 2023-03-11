@@ -1,14 +1,12 @@
 package com.maruchin.kmm.sharedservices
 
-import com.maruchin.kmm.sharedservices.core.DemoConfig
-import com.maruchin.kmm.sharedservices.core.coreDependenciesModule
-import com.maruchin.kmm.sharedservices.core.coreModule
 import com.maruchin.kmm.sharedservices.posts.PostsService
 import com.maruchin.kmm.sharedservices.posts.postsModule
+import com.maruchin.kmm.sharedservices.session.SessionService
 import com.maruchin.kmm.sharedservices.session.sessionModule
-import com.maruchin.kmm.sharedservices.users.UsersService
 import com.maruchin.kmm.sharedservices.users.usersModule
 import org.koin.core.KoinApplication
+import org.koin.dsl.module
 
 class DemoSdk(config: DemoConfig) {
 
@@ -16,13 +14,13 @@ class DemoSdk(config: DemoConfig) {
         .init()
         .modules(
             coreModule,
-            coreDependenciesModule(config),
             sessionModule,
             usersModule,
             postsModule,
+            module { factory { config } }
         )
 
-    val usersService: UsersService
+    val sessionService: SessionService
         get() = getFromKoin()
 
     val postsService: PostsService

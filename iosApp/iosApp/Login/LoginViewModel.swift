@@ -15,17 +15,17 @@ class LoginViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var errorMessage: String = ""
     
-    private let usersService: UsersService
+    private let sessionService: SessionService
     private let delegate: LoginDelegate
     
-    init(usersService: UsersService, delegate: LoginDelegate) {
-        self.usersService = usersService
+    init(sessionService: SessionService, delegate: LoginDelegate) {
+        self.sessionService = sessionService
         self.delegate = delegate
     }
     
     func login() {
         isLoading = true
-        usersService.loginUser(email: email) { error in
+        sessionService.loginUser(email: email) { error in
             if (error == nil) {
                 self.delegate.onLoggedIn()
             } else {

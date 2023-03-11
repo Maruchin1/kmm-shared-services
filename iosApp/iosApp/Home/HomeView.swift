@@ -28,6 +28,7 @@ struct HomeView: View {
                 viewModel.logout()
             }
         }
+        .overlay(viewModel.isLoading ? LoadingView() : nil)
     }
 }
 

@@ -10,7 +10,7 @@ import SwiftUI
 
 func buildLoginController(delegate: LoginDelegate) -> UIViewController {
     let sdk = DemoSdkProvider.shared.sdk
-    let viewModel = LoginViewModel(usersService: sdk.usersService, delegate: delegate)
+    let viewModel = LoginViewModel(sessionService: sdk.sessionService, delegate: delegate)
     let view = LoginView(viewModel: viewModel)
     return UIHostingController(rootView: view)
 }

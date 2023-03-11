@@ -2,6 +2,7 @@ package com.maruchin.kmm.sharedservices
 
 import com.maruchin.kmm.sharedservices.posts.PostJson
 import com.maruchin.kmm.sharedservices.posts.Post
+import com.maruchin.kmm.sharedservices.posts.PostWithAuthor
 import com.maruchin.kmm.sharedservices.users.UserJson
 import com.maruchin.kmm.sharedservices.users.User
 
@@ -169,4 +170,10 @@ internal val sampleFreshPosts = listOf(
         body = "repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem sed est\nvoluptatem " +
             "omnis possimus esse voluptatibus quis\nest aut tenetur dolor neque"
     )
+)
+
+internal val samplePostsWithAuthors = listOf(
+    PostWithAuthor(samplePosts[0], sampleUsers[0]),
+    PostWithAuthor(samplePosts[1], sampleUsers[1]),
+    PostWithAuthor(samplePosts[2], sampleUsers[2]),
 )

@@ -1,8 +1,7 @@
 package com.maruchin.kmm.sharedservices.session
 
-import com.maruchin.kmm.sharedservices.core.coreModule
-import com.maruchin.kmm.sharedservices.core.fakeCoreDependenciesModule
 import com.maruchin.kmm.sharedservices.sampleUsers
+import com.maruchin.kmm.sharedservices.testModule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.koin.core.context.startKoin
@@ -21,7 +20,7 @@ class SessionRepositoryTest : KoinTest {
 
     @BeforeTest
     fun before() {
-        startKoin { modules(sessionModule, fakeCoreDependenciesModule, coreModule) }
+        startKoin { modules(sessionModule, testModule) }
     }
 
     @AfterTest
@@ -31,28 +30,34 @@ class SessionRepositoryTest : KoinTest {
 
     @Test
     fun `Session not saved`() = runTest {
+        // when
         val session = sessionRepository.getSession()
 
+        // then
         assertNull(session)
     }
 
     @Test
     fun `Session saved`() = runTest {
+        // when
         val newSession = Session.forUser(sampleUsers[0])
         sessionRepository.saveSession(newSession)
         val session = sessionRepository.getSession()
 
+        // then
         assertEquals(newSession, session)
     }
 
     @Test
     fun `Session changed to different one`() = runTest {
+        // when
         val firstSession = Session.forUser(sampleUsers[0])
         sessionRepository.saveSession(firstSession)
         val secondSession = Session.forUser(sampleUsers[2])
         sessionRepository.saveSession(secondSession)
         val session = sessionRepository.getSession()
 
+        // then
         assertEquals(secondSession, session)
     }
 }

@@ -16,6 +16,7 @@
 		9B0267E529B122C800A26256 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0267E429B122C800A26256 /* HomeViewModel.swift */; };
 		9B0267E729B1268A00A26256 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0267E629B1268A00A26256 /* HomeView.swift */; };
 		9B0267E929B126F300A26256 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0267E829B126F300A26256 /* HomeController.swift */; };
+		9B8C5AEB29BCFDED00FCEC48 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C5AEA29BCFDED00FCEC48 /* LoadingView.swift */; };
 		C7DF740F05A311D948359C2C /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490EE2034C4B37998D24217E /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		9B0267E429B122C800A26256 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9B0267E629B1268A00A26256 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9B0267E829B126F300A26256 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		9B8C5AEA29BCFDED00FCEC48 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		D8EEC6BBB21ACD32CE5483B1 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F3C0A7DE3B6FA990100A22FB /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +79,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				9B8C5AE929BCFDD000FCEC48 /* Components */,
 				9B0267E329B122A300A26256 /* Home */,
 				9B00D0BB29AFC6E00022CB58 /* Login */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -105,6 +108,14 @@
 				9B0267E829B126F300A26256 /* HomeController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		9B8C5AE929BCFDD000FCEC48 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9B8C5AEA29BCFDED00FCEC48 /* LoadingView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		E7E659A277B0848886FB8180 /* Pods */ = {
@@ -231,6 +242,7 @@
 				9B00D0B829AF48DA0022CB58 /* AppDelegate.swift in Sources */,
 				9B0267E229B11EBC00A26256 /* MainCoordinator.swift in Sources */,
 				9B0267E529B122C800A26256 /* HomeViewModel.swift in Sources */,
+				9B8C5AEB29BCFDED00FCEC48 /* LoadingView.swift in Sources */,
 				9B00D0BD29AFC70A0022CB58 /* LoginViewModel.swift in Sources */,
 				9B00D0C329AFCD190022CB58 /* LoginController.swift in Sources */,
 				9B0267E929B126F300A26256 /* HomeController.swift in Sources */,

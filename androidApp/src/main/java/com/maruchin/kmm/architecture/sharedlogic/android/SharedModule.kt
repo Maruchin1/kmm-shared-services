@@ -1,7 +1,7 @@
 package com.maruchin.kmm.architecture.sharedlogic.android
 
 import android.content.Context
-import com.maruchin.kmm.sharedservices.core.DemoConfig
+import com.maruchin.kmm.sharedservices.DemoConfig
 import com.maruchin.kmm.sharedservices.DemoSdk
 import dagger.Module
 import dagger.Provides
@@ -25,7 +25,7 @@ class SharedModule {
     }
 
     @Provides
-    fun usersService(library: DemoSdk) = library.usersService
+    fun sessionSe(library: DemoSdk) = library.sessionService
 
     @Provides
     fun postsService(library: DemoSdk) = library.postsService
